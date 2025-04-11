@@ -1,0 +1,60 @@
+{
+    "root_panel": {
+        "modifications": [
+            {
+                "array_name": "controls",
+                "operation": "insert_front",
+                "value": [
+                {
+                    "@hud.neko_factory": {}
+                }
+                ]
+            }
+        ]
+    },
+    "neko": {
+        "type": "image",
+        "texture": "textures/ui/hud_tip_text_background",
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "alpha": "@hud.anim_actionbar_text_background_alpha_out",
+        "$atext": "$actionbar_text",
+        "visible": "(not (($atext - '§N§e§k§o') = $atext))",
+        "controls": [
+            {
+                "dialogo_text": {
+                    "type": "label",
+                    "text": "($atext - '§N§e§k§o')",
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "text_alignment": "left",
+                    "size": [
+                        "100%",
+                        "100%"
+                    ],
+                    "color": "$tool_tip_text",
+                    "layer": 1,
+                    "alpha": "@hud.anim_actionbar_text_alpha_out",
+                    "localize": false
+                }
+            }
+        ]
+    },
+    "neko_factory": {
+        "type": "panel",
+        "factory": {
+            "name": "hud_actionbar_text_factory",
+            "control_ids": {
+                "hud_actionbar_text": "neko@hud.neko"
+            }
+        }
+    },
+    "hud_actionbar_text": {
+        "$atext": "$actionbar_text",
+        "visible": "((($atext - '§N§e§k§o') = $atext))"
+    }
+}

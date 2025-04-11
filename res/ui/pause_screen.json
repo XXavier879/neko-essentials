@@ -1,0 +1,197 @@
+{
+  "namespace": "pause",
+  
+  "info_icon": {
+    "type": "image",
+    "texture": "textures/neko/books/book_enchanted_red_blue",
+    "layer": 3,
+    "size": [ 16, 16 ]
+  },
+  "packinfo_button@common_buttons.light_content_button": {
+    "size": [ 24, 24 ],
+    "$button_content": "pause.info_icon",
+    "$pressed_button_name": "button.menu_buy_game"
+  },
+
+  "packinfo_icon_button": {
+    "type": "panel",
+    "$button_tts_header": "manifestvalidation.title",
+    "controls": [
+      { "packinfo_button@pause.packinfo_button": {
+        "$focus_id": "packinfo_button_focus"
+        }
+      }
+    ]
+  },
+  "the_icon_panel": {
+    "type": "stack_panel",
+    "anchor_to": "bottom_left",
+    "anchor_from": "bottom_left",
+    "size": [ "50% - 75px", "100%c" ],
+    "offset": [ 0, "-10%" ],
+    "controls": [
+      {
+        "stacked_column": {
+          "type": "stack_panel",
+          "size": [ "100%", 32 ],
+          "offset": [ "5%", 0 ],
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "orientation": "horizontal",
+          "controls": [
+            {
+              "side_padding": {
+                "type": "panel",
+                "size": [ "12%", 0 ]
+              }
+            },
+            {
+              "feedback_btn@pause.column_frame": {
+                "ignored": "$education_edition",
+                "size": [ 28, 32 ],
+                "controls": [
+                  {
+                    "feedback_icon_button@pause.feedback_icon_button": {
+                      "variables": [
+                        {
+                          "requires": "$feedback_button_focus",
+                          "$focus_id": "icon_panel_main_focus"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "feedback_padding": {
+                "type": "panel",
+                "size": [ "2%", 0 ]
+              }
+            },
+            {
+              "achievements_btn@pause.column_frame": {
+                "ignored": "$achievements_ignored",
+                "size": [ 28, 32 ],
+                "controls": [
+                  { "achievements_icon_button@pause.achievements_icon_button": {} }
+                ],
+                "bindings": [
+                  {
+                    "binding_name": "#achievements_visible",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            },
+            {
+              "achievements_padding": {
+                "type": "panel",
+                "size": [ "2%", 0 ],
+                "bindings": [
+                  {
+                    "binding_name": "#achievements_visible",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            },
+            {
+              "take_screenshot_btn": {
+                "type": "input_panel",
+                "size": [ "100%c + 4px", 32 ],
+                "controls": [
+                  { "take_screenshot_button@pause.take_screenshot_button": {} },
+                  { "take_screenshot_gamepad_button@pause.take_screenshot_gamepad_button": {} }
+                ],
+                "bindings": [
+                  {
+                    "binding_name": "#screenshot_button_visible",
+                    "binding_name_override": "#visible",
+                    "binding_type": "global"
+                  }
+                ],
+                "button_mappings": [
+                  {
+                    "from_button_id": "button.controller_secondary_select",
+                    "to_button_id": "button.screenshot",
+                    "mapping_type": "global",
+                    "scope": "controller"
+                  }
+                ]
+              }
+            },
+            {
+              "screenshot_padding": {
+                "type": "panel",
+                "size": [ "2%", 0 ],
+                "bindings": [
+                  {
+                    "binding_name": "#screenshot_button_visible",
+                    "binding_name_override": "#visible",
+                    "binding_type": "global"
+                  }
+                ]
+              }
+            },
+            {
+              "profile_btn_padding_left": {
+                "type": "panel",
+                "size": [ "2%", 0 ],
+                "bindings": [
+                  {
+                    "binding_name": "#profile_button_a_visible",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            },
+            {
+              "profile_btn@pause.column_frame": {
+                "size": [ "100%c", 32 ],
+                "controls": [
+                  {
+                    "profile_button@pause.profile_button": {
+                      "variables": [
+                        {
+                          "requires": "$profile_button_focus",
+                          "$focus_id": "icon_panel_main_focus"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "bindings": [
+                  {
+                    "binding_name": "#profile_button_a_visible",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            },
+            {
+              "profile_btn_padding_right": {
+                "type": "panel",
+                "size": [ "4%", 0 ],
+                "bindings": [
+                  {
+                    "binding_name": "#profile_button_a_visible",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            },
+            {
+              "packinfo_btn@pause.column_frame": {
+                "size": [ 28, 32 ],
+                "controls": [
+                  { "packinfo_icon_button@pause.packinfo_icon_button": {} }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

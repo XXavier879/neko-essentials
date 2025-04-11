@@ -1,0 +1,500 @@
+{
+  "namespace": "tabbed_upsell",
+
+  "warning_icon": {
+    "type": "image",
+    "texture": "textures/ui/ErrorGlyph",
+    "layer": 3,
+    "size": [ 13, 20 ]
+  },
+  "indexs_panel": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%c" ]
+  },
+  "index_toggle_button_content": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "$button_label|default": "",
+    "$button_icon|default": "textures/blocks/stone",
+    "controls": [
+      {
+        "labels": {
+          "type": "stack_panel",
+          "size": [ "100%", 20 ],
+          "offset": [ 2, 0 ],
+          "orientation": "horizontal",
+          "controls": [
+            {
+              "image": {
+                "type": "image",
+                "texture": "$button_icon",
+                "size": [ 20, 20 ]
+              }
+            },
+            {
+              "padding": {
+                "type": "panel",
+                "size": [ 2, 0 ]
+              }
+            },
+            {
+              "label_panel": {
+                "type": "panel",
+                "size": [ "default", 20 ],
+                "controls": [
+                  {
+                    "label": {
+                      "type": "label",
+                      "size": [ "default", 10 ],
+                      "anchor_from": "left_middle",
+                      "anchor_to": "left_middle",
+                      "text": "$button_label",
+                      "color": "$text_color"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "version_toggle_button_content": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "labels": {
+          "type": "stack_panel",
+          "size": [ "100%", 10 ],
+          "offset": [ 2, 0 ],
+          "orientation": "horizontal",
+          "controls": [
+            {
+              "gotesupporter": {
+                "type": "label",
+                "text": "('Gote-Supporter ' + $version)",
+                "color": "$text_color",
+                "font_type": "#font_type",
+                "bindings": [
+                  {
+                    "binding_type": "view",
+                    "source_control_name": "font_property_panel",
+                    "source_property_name": "#font_type",
+                    "target_property_name": "#font_type"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "dropdown_chevron": {
+          "type": "image",
+          "texture": "textures/ui/chevron_white_down",
+          "color": "$text_color",
+          "anchor_from": "right_middle",
+          "anchor_to": "right_middle",
+          "offset": [ -5, 0 ],
+          "size": [ 11, 11 ]
+        }
+      }
+    ]
+  },
+  "version_section": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%c" ],
+    "$version|default": "v1.0.0",
+    "$details_controls|default": [],
+    "controls": [
+      {
+        "toggle_button@common_toggles.dark_content_toggle": {
+          "size": [ "100%", 20 ],
+          "$button_content": "tabbed_upsell.version_toggle_button_content",
+          "$toggle_name": "$version",
+          "$toggle_view_binding_name": "$version",
+          "$toggle_sound": true
+        }
+      },
+      {
+        "details_panel": {
+          "type": "image",
+          "size": [ "100%", "100%c + 5px" ],
+          "texture": "textures/ui/menubackground",
+          "controls": [
+            {
+              "stack": {
+                "type": "stack_panel",
+                "size": [ "100% - 4px", "100%c" ],
+                "layer": 10,
+                "controls": "$details_controls"
+              }
+            }
+          ],
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "$version",
+              "source_property_name": "#toggle_state",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "padding_2": {
+          "type": "panel",
+          "size": [ 0, 3 ]
+        }
+      }
+    ]
+  },
+  "text": {
+    "type": "label",
+    "anchor_from": "left_middle",
+    "anchor_to": "left_middle",
+    "size": [ "100%", "default" ],
+    "shadow": true,
+    "text": "$text",
+    "$text|default": ""
+  },
+  "link_text@tabbed_upsell.text": {
+    "size": [ "default", "default" ],
+    "max_size": [ "100%", 10000 ],
+    "font_type": "smooth",
+    "color": "$2_color_format",
+    "controls": [
+      {
+        "kasen": {
+          "type": "image",
+          "texture": "textures/ui/White",
+          "color": "$2_color_format",
+          "size": [ "100%", 1 ],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle"
+        }
+      }
+    ]
+  },
+  "tab_selector@common_toggles.light_content_toggle": {
+    "size": [ "100%", 30 ],
+    "$toggle_name": "navigation_tab",
+    "$radio_toggle_group": true,
+    "$button_content": "tabbed_upsell.index_toggle_button_content"
+  },
+  "left_panel": {
+    "type": "stack_panel",
+    "size": [ "100% - 6px", "100%c" ],
+    "offset": [ 3, 0 ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "controls": [
+      {
+        "header_padding": {
+          "type": "panel",
+          "size": [ 0, 10 ]
+        }
+      },
+      {
+        "about_button@tabbed_upsell.tab_selector": {
+          "$toggle_view_binding_name": "page_about",
+          "$toggle_group_forced_index": 0,
+          "$button_label": "packinfo.about.title",
+          "$button_icon": "textures/ui/info_icon"
+        }
+      },
+      {
+        "help_button@tabbed_upsell.tab_selector": {
+          "$toggle_view_binding_name": "page_help",
+          "$toggle_group_forced_index": 1,
+          "$button_label": "packinfo.help.title",
+          "$button_icon": "textures/ui/info_icon"
+        }
+      }
+    ]
+  },
+  "right_panel": {
+    "type": "stack_panel",
+    "size": [ "100% - 6px", "100%c" ],
+    "offset": [ 3, 0 ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "controls": [
+      {
+        "header": {
+          "type": "input_panel",
+          "focus_enabled": true,
+          "size": [ "100%", 1 ]
+        }
+      },
+      {
+        "about_page@tabbed_upsell.indexs_panel": {
+          "controls": [
+            { "fh2@how_to_play_common.header": { "$text":"packinfo.about.title" }},
+            { "howtoplay_0@tabbed_upsell.text": {"$text": "packinfo.about.text0"}},
+            { "howtoplay_1@tabbed_upsell.text": {"$text": "packinfo.about.text1"}},
+            { "howtoplay_2@tabbed_upsell.text": {"$text": "packinfo.about.text2"}},
+            { "howtoplay_3@tabbed_upsell.text": {"$text": "packinfo.about.text3"}},
+            { "howtoplay_4@tabbed_upsell.text": {"$text": "packinfo.about.text4"}},
+            { "howtoplay_5@tabbed_upsell.text": {"$text": "packinfo.about.text5"}},
+            { "howtoplay_6@tabbed_upsell.text": {"$text": "packinfo.about.text6"}},
+            { "howtoplay_7@tabbed_upsell.text": {"$text": "packinfo.about.text7"}},
+            { "howtoplay_8@tabbed_upsell.text": {"$text": "packinfo.about.text8"}},
+            { "howtoplay_9@tabbed_upsell.text": {"$text": "packinfo.about.text9"}},
+            { "howtoplay_10@tabbed_upsell.text": {"$text": "packinfo.about.text10"}},
+            { "howtoplay_11@tabbed_upsell.text": {"$text": "packinfo.about.text11"}},
+            { "howtoplay_12@tabbed_upsell.text": {"$text": "packinfo.about.text12"}},
+            { "howtoplay_13@tabbed_upsell.text": {"$text": "packinfo.about.text13"}},
+            { "howtoplay_14@tabbed_upsell.text": {"$text": "packinfo.about.text14"}},
+            { "howtoplay_15@tabbed_upsell.text": {"$text": "packinfo.about.text15"}},
+            { "howtoplay_16@tabbed_upsell.text": {"$text": "packinfo.about.text16"}},
+            { "howtoplay_17@tabbed_upsell.text": {"$text": "packinfo.about.text17"}},
+            { "howtoplay_18@tabbed_upsell.text": {"$text": "packinfo.about.text18"}},
+            { "howtoplay_19@tabbed_upsell.text": {"$text": "packinfo.about.text19"}}
+          ],
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "page_about",
+              "source_property_name": "#toggle_state",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "help_page@tabbed_upsell.indexs_panel": {
+          "controls": [
+    { "fh1@how_to_play_common.header": { "$text": "packinfo.help.title1" }},
+    { "howtoplay_0@tabbed_upsell.text": { "$text": "packinfo.help.text1" }},
+    { "howtoplay_61@tabbed_upsell.text": { "$text": "packinfo.help.text1" }},
+    { "howtoplay_1@tabbed_upsell.text": { "$text": "packinfo.help.text2" }},
+    { "howtoplay_2@tabbed_upsell.text": { "$text": "packinfo.help.text3" }},
+    { "howtoplay_3@tabbed_upsell.text": { "$text": "packinfo.help.text4" }},
+    { "howtoplay_4@tabbed_upsell.text": { "$text": "packinfo.help.text5" }},
+    { "howtoplay_5@tabbed_upsell.text": { "$text": "packinfo.help.text6" }},
+    { "howtoplay_6@tabbed_upsell.text": { "$text": "packinfo.help.text7" }},
+    { "howtoplay_7@tabbed_upsell.text": { "$text": "packinfo.help.text8" }},
+    { "howtoplay_8@tabbed_upsell.text": { "$text": "packinfo.help.text9" }},
+    { "howtoplay_9@tabbed_upsell.text": { "$text": "packinfo.help.text10" }},
+    { "howtoplay_10@tabbed_upsell.text": { "$text": "packinfo.help.text11" }},
+    { "howtoplay_11@tabbed_upsell.text": { "$text": "packinfo.help.text12" }},
+    { "howtoplay_12@tabbed_upsell.text": { "$text": "packinfo.help.text13" }},
+    { "howtoplay_13@tabbed_upsell.text": { "$text": "packinfo.help.text14" }},
+    { "howtoplay_14@tabbed_upsell.text": { "$text": "packinfo.help.text15" }},
+    { "howtoplay_15@tabbed_upsell.text": { "$text": "packinfo.help.text16" }},
+    { "howtoplay_16@tabbed_upsell.text": { "$text": "packinfo.help.text17" }},
+    { "howtoplay_17@tabbed_upsell.text": { "$text": "packinfo.help.text18" }},
+    { "howtoplay_18@tabbed_upsell.text": { "$text": "packinfo.help.text19" }},
+    
+    { "fh2@how_to_play_common.header": { "$text": "packinfo.help.title2" }},
+    { "howtoplay_19@tabbed_upsell.text": { "$text": "packinfo.help.text20" }},
+    { "howtoplay_20@tabbed_upsell.text": { "$text": "packinfo.help.text21" }},
+    { "howtoplay_21@tabbed_upsell.text": { "$text": "packinfo.help.text22" }},
+    { "howtoplay_22@tabbed_upsell.text": { "$text": "packinfo.help.text23" }},
+    { "howtoplay_23@tabbed_upsell.text": { "$text": "packinfo.help.text24" }},
+    { "howtoplay_24@tabbed_upsell.text": { "$text": "packinfo.help.text25" }},
+    { "howtoplay_25@tabbed_upsell.text": { "$text": "packinfo.help.text26" }},
+    { "howtoplay_26@tabbed_upsell.text": { "$text": "packinfo.help.text27" }},
+    { "howtoplay_27@tabbed_upsell.text": { "$text": "packinfo.help.text28" }},
+    { "howtoplay_28@tabbed_upsell.text": { "$text": "packinfo.help.text29" }},
+    { "howtoplay_29@tabbed_upsell.text": { "$text": "packinfo.help.text30" }},
+    { "howtoplay_30@tabbed_upsell.text": { "$text": "packinfo.help.text31" }},
+    { "howtoplay_31@tabbed_upsell.text": { "$text": "packinfo.help.text32" }},
+    { "howtoplay_32@tabbed_upsell.text": { "$text": "packinfo.help.text33" }},
+    { "howtoplay_33@tabbed_upsell.text": { "$text": "packinfo.help.text34" }},
+    { "howtoplay_34@tabbed_upsell.text": { "$text": "packinfo.help.text35" }},
+    
+    { "fh3@how_to_play_common.header": { "$text": "packinfo.help.title3" }},
+    { "howtoplay_35@tabbed_upsell.text": { "$text": "packinfo.help.text36" }},
+    { "howtoplay_36@tabbed_upsell.text": { "$text": "packinfo.help.text37" }},
+    { "howtoplay_37@tabbed_upsell.text": { "$text": "packinfo.help.text38" }},
+    { "howtoplay_38@tabbed_upsell.text": { "$text": "packinfo.help.text39" }},
+    { "howtoplay_39@tabbed_upsell.text": { "$text": "packinfo.help.text40" }},
+    { "howtoplay_40@tabbed_upsell.text": { "$text": "packinfo.help.text41" }},
+    { "howtoplay_41@tabbed_upsell.text": { "$text": "packinfo.help.text42" }},
+    
+    { "fh4@how_to_play_common.header": { "$text": "packinfo.help.title4" }},
+    { "howtoplay_42@tabbed_upsell.text": { "$text": "packinfo.help.text53" }},
+    { "howtoplay_43@tabbed_upsell.text": { "$text": "packinfo.help.text54" }},
+    { "howtoplay_44@tabbed_upsell.text": { "$text": "packinfo.help.text55" }},
+    { "howtoplay_45@tabbed_upsell.text": { "$text": "packinfo.help.text56" }},
+    { "howtoplay_46@tabbed_upsell.text": { "$text": "packinfo.help.text57" }},
+    { "howtoplay_47@tabbed_upsell.text": { "$text": "packinfo.help.text58" }},
+    { "howtoplay_48@tabbed_upsell.text": { "$text": "packinfo.help.text59" }},
+    { "howtoplay_49@tabbed_upsell.text": { "$text": "packinfo.help.text60" }},
+    { "howtoplay_50@tabbed_upsell.text": { "$text": "packinfo.help.text61" }}
+]
+,
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "page_help",
+              "source_property_name": "#toggle_state",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "footer": {
+          "type": "input_panel",
+          "focus_enabled": true,
+          "size": [ "100%", 20 ]
+        }
+      }
+    ]
+  },
+  "main_panel": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "selector_and_main_content": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": [ "100% - 4px", "100% + 1px" ],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "controls": [
+            {
+              "tab_selector_panel": {
+                "type": "panel",
+                "size": [ 135, "100%" ],
+                "controls": [
+                  {
+                    "tab_selector@common.scrolling_panel": {
+                      "$show_background": false,
+                      "size": [ "100%", "100% - 2px"],
+                      
+                      "$scrolling_content": "tabbed_upsell.left_panel",
+                      "$scroll_size": [ "4px", "100% - 2px" ],
+                      "$scrolling_panel_size": [ "100% - 2px", "100%" ],
+                      "$always_handle_scrolling": false
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "padding1": {
+                "type": "panel",
+                "size": [ 1, 0 ]
+              }
+            },
+            {
+              "divider": {
+                "type": "image",
+                "size": [ 3, "100%" ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "layer": 10,
+                "offset": [ 0, 0 ],
+                "texture": "textures/ui/HowToPlayDivider"
+              }
+            },
+            {
+              "padding2": {
+                "type": "panel",
+                "size": [ 1, 0 ]
+              }
+            },
+            {
+              "main_content_panel": {
+                "type": "panel",
+                "size": [ "fill", "100%" ],
+                "controls": [
+                  {
+                    "main_content@common.scrolling_panel": {
+                      "$show_background": false,
+                      "size": [ "100%", "100% - 2px"],
+                      
+                      "$scrolling_content": "tabbed_upsell.right_panel",
+                      "$scroll_size": [ "4px", "100% - 2px" ],
+                      "$scrolling_panel_size": [ "100% - 2px", "100%" ],
+                      "$always_handle_scrolling": false
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "root_panel": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "root_panel@common.fullscreen_header": {
+          "$back_button_has_title": true,
+          "$button_text": "Neko essentials",
+          "$child_control": "tabbed_upsell.main_panel",
+          "layer": 10
+        }
+      },
+      {
+        "font_property_panel": {
+          "type": "panel",
+          "size": [ 0, 0 ],
+          "property_bag": {
+            "#font_type": "classic"
+          }
+        }
+      }
+    ]
+  },
+
+  "tabbed_upsell_screen": {
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      },
+      {
+        "from_button_id": "button.menu_tab_left",
+        "to_button_id": "button.menu_tab_left",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      {
+        "from_button_id": "button.menu_tab_right",
+        "to_button_id": "button.menu_tab_right",
+        "mapping_type": "global",
+        "scope": "view"
+      }
+    ],
+    "$screen_animations": [
+      "@common.screen_exit_animation_push_offset",
+      "@common.screen_exit_animation_pop_offset",
+      "@common.screen_entrance_animation_push_offset",
+      "@common.screen_entrance_animation_pop_offset",
+      "@common.screen_exit_animation_push_fade",
+      "@common.screen_exit_animation_pop_fade",
+      "@common.screen_entrance_animation_push_fade",
+      "@common.screen_entrance_animation_pop_fade"
+    ],
+    "$background_animations": [
+      "@common.screen_exit_animation_push_alpha",
+      "@common.screen_exit_animation_pop_alpha",
+      "@common.screen_entrance_animation_push_alpha",
+      "@common.screen_entrance_animation_pop_alpha"
+    ],
+    "force_render_below": false,
+    "$screen_content": "tabbed_upsell.root_panel",
+    "$screen_bg_content": "tabbed_upsell.black"
+  },
+
+  "black": {
+    "type": "image",
+    "size": [ "100%", "100%" ],
+    "texture": "textures/ui/Black",
+    "fill": true
+  }
+}

@@ -1,0 +1,18 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "huh?",
+        "name": "§dNeko commander §bv1.0.14",
+        "uuid": "412af1b9-7a4b-4a9a-92cf-8300e4a61516",
+        "version": [1, 0, 14],
+        "min_engine_version": [1, 13, 0]
+    },
+    "modules": [
+        {
+            "description": "i make the things look cool",
+            "type": "resources",
+            "uuid": "2db3c7a8-07d1-4949-a5f2-f018771c1516",
+            "version": [1, 0, 14]
+        }
+    ]
+}

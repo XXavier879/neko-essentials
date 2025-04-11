@@ -1,0 +1,112 @@
+nkevent.nekoJoin=La verdadera Nekita se ha unido, denle aplausos
+nkcmd.command.notfound=perdon %s, pero este comando no existe.
+nkcmd.generic.unallowed=No puedes hacer eso!
+nkcmd.generic.what=... Como hiciste eso mal...
+nkcmd.generic.player.notfound=No pude enconrtrar a %s para ti
+nkcmd.name.change.success=Mira %s, si te pude cambiar el nombre
+nkcmd.renamed=Oye %s, te cambiaron el nombre
+nkcmd.name.change.other=Si le pude cambiar el nombre a %s
+nkcmd.name.change.usage=Para cambiar tu propio nombre es !name change y tu nuevo nombre, para cambiar el nombre de un amigo es !name change el nobre de tu amigo y su nuevo nombre
+nkcmd.kick.success=Pude sacar a %s de la partida
+nkcmd.kick.usage=Para sacar a alguien, tu %s tienes que hacer !kick y a quien quieres sacar
+nkcmd.sethome.success=Uyyyy que linda casa %s
+nkcmd.home.success=Bienvenido/a a tu casa %s
+nkcmd.home.notset=Oye %s, que yo sepa tu no tienes casa
+nkcmd.freeze.success=Ya pude criogenizar a %s
+nkcmd.freeze.usage=Mira %s, para congelar a alguien haces !freeze y el nombre de la persona
+nkcmd.unfreeze.success=Ya pude sacar a %s de la criogenia
+nkcmd.unfreeze.usage=Oye %s, para descongelar a alguien haces !unfreeze y el nombre de la persona
+nkcmd.pos1.success=Muy buena primera esquina %s
+nkcmd.pos2.success=Esta es la segunda esquina de tu seleccion %s
+nkcmd.set.success=Mira %s ayi esta tu... bloque de algo
+nkcmd.set.missingblock=Pero dime que lo que quieres poner %s!
+nkcmd.cmtrigger.success=%s, si pude obtener tu selector, aqui lo tienes §o%s
+item.neko:test_record.name=Menu
+packinfo.about.title=Acerca de 
+packinfo.about.text0=Este pack se trata de traer 
+packinfo.about.text1=funciones tontas de plugins 
+packinfo.about.text2=y características 
+packinfo.about.text3=interesantes de bloques de 
+packinfo.about.text4=comandos a tu Minecraft
+packinfo.about.text5=También puedes cambiar las 
+packinfo.about.text6=skins de los jugadores con 
+packinfo.about.text7=comandos, me di demasiadas 
+packinfo.about.text8=líneas, así que las estoy 
+packinfo.about.text9=usando de la manera menos 
+packinfo.about.text10=sabia
+packinfo.about.text11=
+packinfo.about.text12=
+packinfo.about.text13=
+packinfo.about.text14=
+packinfo.about.text15=
+packinfo.about.text16=
+packinfo.about.text17=
+packinfo.about.text18=
+packinfo.about.text19=
+packinfo.help.title=Documentación y Ayuda
+
+packinfo.help.title1=Bienvenido a Neko Essentials
+packinfo.help.text1=Esta herramienta habilita varios comandos de servidor y acciones de jugador basadas en tus permisos.
+
+packinfo.help.title2=Comandos Generales
+packinfo.help.text2=Para cambiar o intercambiar nombres de jugadores, usa: 
+packinfo.help.text3=§o !name [change/swap] [player] [newName]§r
+packinfo.help.text4=Asegúrate de tener el permiso §lNekita:perms.cmd.admin§r. 
+packinfo.help.text5=Por ejemplo, para cambiar el nombre de un jugador: 
+packinfo.help.text6=§o !name change Alex ThePro§r
+packinfo.help.text7=O para intercambiar nombres, usa: 
+packinfo.help.text8=§o !name swap AlexThePro§r.
+
+packinfo.help.text9=Recargar el servidor es simple con: 
+packinfo.help.text10=§o !reload§r.
+
+packinfo.help.text11=Para banear a un jugador, usa: 
+packinfo.help.text12=§o !ban [playerName]§r. Por ejemplo: 
+packinfo.help.text13=§o !ban AlexTheGriefer§r.
+packinfo.help.text14=Este comando también requiere permiso §lNekita:perms.cmd.admin§r. 
+
+packinfo.help.text15=Para desbanear a un jugador, usa: 
+packinfo.help.text16=§o !unban [playerName]§r, como: 
+packinfo.help.text17=§o !unban AlexTheGriefer§r.
+
+packinfo.help.text18=Para detener el servidor, el comando es: 
+packinfo.help.text19=§o !stop§r. Esto requiere permiso §lNekita:perms.cmd.owner§r. 
+
+packinfo.help.text20=Si necesitas expulsar a un jugador, usa: 
+packinfo.help.text21=§o !kick [playerName] [reason]§r. Por ejemplo: 
+packinfo.help.text22=§o !kick AlexThePro Mal comportamiento§r.
+packinfo.help.text23=Necesitarás permiso §lNekita:perms.cmd.admin§r.
+
+packinfo.help.text24=Para activar el modo de vuelo para ti mismo o para otro jugador, usa: 
+packinfo.help.text25=§o !fly [playerName]§r con el permiso *Nekita:perms.cmd.fly*. 
+packinfo.help.text26=Un ejemplo sería: 
+packinfo.help.text27=§o !fly AlexThePro§r.
+
+packinfo.help.text28=Configurar tu ubicación de casa se puede hacer con: 
+packinfo.help.text29=§o !sethome§r. Para teletransportarte a tu punto de casa, usa: 
+packinfo.help.text30=§o !home§r. Ambas acciones requieren permiso §lNekita:perms.cmd.home§r.
+
+packinfo.help.text31=Puedes congelar el movimiento de un jugador usando: 
+packinfo.help.text32=§o !freeze [playerName]§r. Para descongelar, usa: 
+packinfo.help.text33=§o !unfreeze [playerName]§r. Ambos comandos requieren permiso §lNekita:perms.cmd.admin§r. 
+packinfo.help.text34=Por ejemplo: 
+packinfo.help.text35=§o !freeze AlexThePro§r y 
+packinfo.help.text36=§o !unfreeze AlexThePro§r.
+
+packinfo.help.title3=Comandos de WorldEdit
+packinfo.help.text37=Si tienes permiso §lNekita:perms.cmd.fill§r, puedes modificar el mundo usando comandos de llenado. 
+packinfo.help.text38=Configura tu primer punto de selección con: 
+packinfo.help.text39=§o !pos1§r, tu segundo punto de selección con: 
+packinfo.help.text40=§o !pos2§r, y llena el área con un bloque usando: 
+packinfo.help.text41=§o !set [blockId]§r. Por ejemplo: 
+packinfo.help.text42=§o !set stone§r.
+
+packinfo.help.title4=Etiquetas de Permisos
+packinfo.help.text43=Para ejecutar estos comandos, necesitas las etiquetas de permisos apropiadas. 
+packinfo.help.text44=Estas incluyen: 
+packinfo.help.text45=§l Nekita:perms.cmd.admin§r, 
+packinfo.help.text46=§l Nekita:perms.cmd.owner§r, 
+packinfo.help.text47=§l Nekita:perms.cmd.fly§r, 
+packinfo.help.text48=§l Nekita:perms.cmd.home§r, 
+packinfo.help.text49=§l Nekita:perms.cmd.fill§r.
+packinfo.help.text50=Siempre asegúrate de tener los permisos requeridos antes de intentar cualquier comando.

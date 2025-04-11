@@ -1,0 +1,7 @@
+{
+	"ui_defs": [
+		"ui/oreville/countdown.json",
+		"ui/oreville/transition.json",
+		"ui/chest_server_form.json"
+	]
+}
