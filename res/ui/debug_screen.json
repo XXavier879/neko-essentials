@@ -25,7 +25,7 @@
   },
   "powered_by_neko": {
     "type": "label",
-    "text": "Neko commander 1.0.14",
+    "text": "Neko commander 1.0.15",
     "anchor_to": "top_right",
     "anchor_from": "top_right"
   },

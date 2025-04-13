@@ -1,7 +1,7 @@
 {
 	"format_version": 2,
 	"header": {
-		"name": "§dNeko commander §bv1.0.14",
+		"name": "§dNeko commander §bv1.0.15",
 		"description": "huh?",
 		"min_engine_version": [
 			1,
@@ -12,7 +12,7 @@
 		"version": [
 			1,
 			0,
-			14
+			15
 		]
 	},
 	"modules": [
@@ -22,7 +22,7 @@
 			"version": [
 				1,
 				0,
-				14
+				15
 			]
 		},
 		{
@@ -33,7 +33,7 @@
 			"version": [
 				1,
 				0,
-				14
+				15
 			],
 			"entry": "scripts/main.js"
 		}

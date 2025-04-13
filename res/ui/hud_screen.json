@@ -16,11 +16,11 @@
         "type": "image",
         "texture": "textures/ui/hud_tip_text_background",
         "size": [
-            "100%",
-            "100%"
+            "100%c",
+            "100%c"
         ],
-        "anchor_from": "center",
-        "anchor_to": "center",
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
         "alpha": "@hud.anim_actionbar_text_background_alpha_out",
         "$atext": "$actionbar_text",
         "visible": "(not (($atext - '§N§e§k§o') = $atext))",
