@@ -178,8 +178,8 @@ const logger = {
   }
 };
 function copyRegion(player) {
-  const pos1 = player.getDynamicProperty("pos1")
-  const pos2 = player.getDynamicProperty("pos2")
+  const pos1 = JSON.parse(player.getDynamicProperty("WEpos1"))
+  const pos2 = JSON.parse(player.getDynamicProperty("WEpos2"))
   const min = { 
     x: Math.min(pos1.x, pos2.x),
     y: Math.min(pos1.y, pos2.y),
@@ -198,7 +198,7 @@ function copyRegion(player) {
     z: min.z - playerPos.z
   };
   player.setDynamicProperty("neko:weclip", relativePos)
-  world.structureManager.createFromWorld(`Neko:${player.id}_weclip`, player.dimension, corner1, corner2, {includeEntities: false,saveMode:"Memory"})
+  world.structureManager.createFromWorld(`Neko:${player.id}_weclip`, player.dimension, min, max, {includeEntities: false,saveMode:"Memory"})
   return Promise.resolve('Region copied successfully!');
 }
 function pasteRegion(player) {

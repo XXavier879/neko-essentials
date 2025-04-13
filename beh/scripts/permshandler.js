@@ -4,16 +4,53 @@ const before = world.beforeEvents
 const after = world.afterEvents
 import {findPlayerByName,findPlayerByNameCmd,renamePlayer,runCMD,checkperms,Database,scriptevent,broadcast,tellPlayer,sendRandomMessage,setTag,generateVoxelSphere,logger} from './helpers.js'
 
-before.playerBreakBlock.subscribe((e)=>{
-  if (e.player.hasTag("Neko:breakDenied")) {
-    e.cancel = true
+// Handle left-click (break) for setting pos1
+before.playerBreakBlock.subscribe((e) => {
+  const player = e.player;
+  const item = e.itemStack;
+  const block = e.block;
+
+  // Block breaking restriction
+  if (player.hasTag("Neko:breakDenied")) {
+    e.cancel = true;
+    return;
   }
-})
-before.playerInteractWithBlock.subscribe((e)=>{
-  if (e.player.hasTag("Neko:interactDenied") || e.player.hasTag("Neko:interactBlockDenied")) {
-    e.cancel = true
+
+  // WorldEdit pos1 selection with wooden axe
+  if (
+    player.hasTag("Neko:Internal_SelectorEnabled") &&
+    item?.type?.id === "minecraft:wooden_axe" &&
+    block?.location
+  ) {
+    player.setDynamicProperty("WEpos1", JSON.stringify(block.location));
+    e.cancel = true;
+    tellPlayer("First position (pos1) set.", player);
   }
-})
+});
+
+// Handle right-click (interact) for setting pos2
+before.playerInteractWithBlock.subscribe((e) => {
+  const player = e.player;
+  const item = e.itemStack;
+  const block = e.block;
+
+  // Interaction restriction
+  if (player.hasTag("Neko:interactDenied") || player.hasTag("Neko:interactBlockDenied")) {
+    e.cancel = true;
+    return;
+  }
+
+  // WorldEdit pos2 selection with wooden axe
+  if (
+    player.hasTag("Neko:Internal_SelectorEnabled") &&
+    item?.type?.id === "minecraft:wooden_axe" &&
+    block?.location
+  ) {
+    player.setDynamicProperty("WEpos2", JSON.stringify(block.location));
+    e.cancel = true;
+    tellPlayer("Second position (pos2) set.", player);
+  }
+});
 before.playerInteractWithEntity.subscribe((e)=>{
   if (e.player.hasTag("Neko:interactDenied") || e.player.hasTag("Neko:interactEntityDenied")) {
     e.cancel = true
@@ -33,10 +70,10 @@ after.playerPlaceBlock.subscribe((data)=>{
   world.scoreboard.getObjective("blockcount").addScore(data.player.scoreboardIdentity, 1)
 })
 before.playerLeave.subscribe((data) => {
-  logger.info(`[chat] §e${e.playername} left the game`)
+  logger.info(`[chat] §e${data.playerName} left the game`)
 });
 after.playerJoin.subscribe((data) => {
-  logger.info(`[playerManager] ${data.playername} is joining the game`)
+  logger.info(`[playerManager] ${data.playerName} is joining the game`)
 })
 after.playerGameModeChange.subscribe((data) => {
   data.player.removeTag("adventure")
