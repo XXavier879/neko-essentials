@@ -120,6 +120,7 @@ function teleportHome(player) {
 // Register script event listener for UI button calls
 system.afterEvents.scriptEventReceive.subscribe((data) => {
   if (data.id === "neko:call" && data.message === "plugins") {
+    scriptevent(`neko:plugin`,[pluginManifest.name,pluginManifest.version,pluginManifest.author,pluginManifest.namespaceCall,pluginManifest.namespaceListen].join(";")))
     scriptevent(`${pluginManifest.namespaceListen}:addbtn`, "openUI;Open Command Menu");
   } else if (data.id === `${pluginManifest.namespaceCall}:btncall`) {
     showMainUI(data.source);

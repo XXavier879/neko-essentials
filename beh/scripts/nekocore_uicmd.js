@@ -1,7 +1,7 @@
 import { world, system } from '@minecraft/server';
 import { ModalFormData } from '@minecraft/server-ui';
 import { checkperms, generateVoxelSphere, logger, tellPlayer, calcCornersDist, scriptevent} from './helpers.js';
-
+import { commandManager } from "./commandManager.js"
 
 const pluginManifest = { name: "Nekocore:UICMD", version: "1.0.0-BETA", author: "Neko", namespaceCall: "nekocoreuicall", namespaceListen: "nekocoreuilisten" };
 
@@ -115,7 +115,7 @@ function teleportHome(player) {
 // Register script event listener for UI button calls
 system.afterEvents.scriptEventReceive.subscribe((data) => {
   if (data.id === "neko:call" && data.message === "plugins") {
-    console.log("a")
+    scriptevent(`neko:plugin`,[pluginManifest.name,pluginManifest.version,pluginManifest.author,pluginManifest.namespaceCall,pluginManifest.namespaceListen].join(";")))
     scriptevent(`${pluginManifest.namespaceListen}:addbtn`, "openUI;Open Command Menu");
   } else if (data.id === `${pluginManifest.namespaceCall}:btncall`) {
     showMainUI(data.source);

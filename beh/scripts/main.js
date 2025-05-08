@@ -199,8 +199,8 @@ logger.info(`[pluginManager] Calling all plugins to load`)
 system.afterEvents.scriptEventReceive.subscribe((data) => {//What do we need this for Nya?
   let message = data.message
   let id = data.id
-  const call = id.split(":")[1]
-  if (data.sourceType == "Entity" && !checkperms(player,3)) { return;}
+  const call = id.split(";")[1]
+  if (data.sourceType == "Entity" && checkperms(player,3) || data.sourceType == "Server") {
     if (id === "neko:plugin") {
       const plugindata = message.split(";")
       const plugin = {
@@ -238,4 +238,5 @@ system.afterEvents.scriptEventReceive.subscribe((data) => {//What do we need thi
         tellPlayer(msg, targetPlayer);
       }
     }
+  }
 })

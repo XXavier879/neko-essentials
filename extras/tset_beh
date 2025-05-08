@@ -1,0 +1,55 @@
+// Types
+type Element = 'fire' | 'water' | 'earth' | 'air' | 'void' | 'fill' | 'god' | 'demon';
+
+type Species =
+  | 'cat'
+  | 'fox'
+  | 'wolf'
+  | 'bunny'
+  | 'god'
+  | 'demigod'
+  | 'spirit'
+  | 'highspirit'
+  | 'human'
+  | 'elf'
+  | 'dwarft'
+  | 'semispirit'
+  | 'hollowed'
+  | 'undead';
+
+// Enchantment Interface
+interface Enchantment {
+  id: string;
+  level: number;
+}
+
+// Item Interface
+interface Item {
+  id: string;
+  amount: number;
+  enchantments: Enchantment[];
+  level: number;
+  xp: number;
+  durability: number;
+}
+
+// Inventory Interface
+interface Inventory {
+  readonly size: number;
+  slots: Item[];
+  expansions: Inventory[];
+}
+
+// Character Interface
+interface Character {
+  level: number;
+  xp: number;
+  readonly name: string;
+  readonly elements: Element[];
+  elements_dynamic: Element[];
+  inventory: Inventory;
+  readonly id: number;
+  name_dynamic: string;
+  readonly species: Species[];
+  species_dynamic: Species[];
+}
